@@ -3,11 +3,9 @@ certifi==2022.9.14
 charset-normalizer==2.1.1
 Django==3.2.15
 django-debug-toolbar==3.2.4
-django-filter<=21.1
 django-modeltranslation==0.18.4
 django-utils-six==2.0
 djangorestframework==3.13.1
-djangorestframework-filters==0.11.1
 gunicorn==20.1.0
 idna==3.4
 importlib-metadata==4.8.3

@@ -1,1 +1,0 @@
-web: gunicorn ocean.wsgi:application --log-file -

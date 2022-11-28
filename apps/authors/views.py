@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
-from authors.models import Author
-from authors.serializers import AuthorSerializer
+from apps.authors.models import Author
+from apps.authors.serializers import AuthorSerializer
 
 
 class AuthorVIewSet(viewsets.ModelViewSet):

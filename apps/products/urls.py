@@ -1,8 +1,6 @@
-from django.conf.urls import url
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 
-from products.views import ProductViewSet, ProductDetailViewSet
+from apps.products.views import ProductViewSet, ProductDetailViewSet
 
 urlpatterns = [
     path(r'list/', ProductViewSet.as_view()),

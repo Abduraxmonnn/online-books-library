@@ -2,9 +2,9 @@
 from rest_framework import serializers
 
 # Project
-from products.models import Product
-from categories.models import Category
-from authors.models import Author
+from apps.products.models import Product
+from apps.categories.models import Category
+from apps.authors.models import Author
 
 
 class ProductCategorySerializer(serializers.ModelSerializer):

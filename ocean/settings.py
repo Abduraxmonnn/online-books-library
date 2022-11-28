@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework',
 
-    'products',
-    'categories',
-    'authors'
+    'apps.products',
+    'apps.categories',
+    'apps.authors'
 ]
 
 SITE_ID = 1

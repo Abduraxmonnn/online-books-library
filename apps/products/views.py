@@ -4,8 +4,8 @@ from rest_framework import viewsets, views
 from rest_framework.response import Response
 
 # Project
-from products.models import Product
-from products.serializers import ProductSerializer, ProductDetailSerializer
+from apps.products.models import Product
+from apps.products.serializers import ProductSerializer, ProductDetailSerializer
 
 
 class ProductViewSet(views.APIView):

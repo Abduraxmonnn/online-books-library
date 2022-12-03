@@ -7,5 +7,4 @@ apps/products/media
 Dockerfile
 media
 note
-media
-./media
+media/

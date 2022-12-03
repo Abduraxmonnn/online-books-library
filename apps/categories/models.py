@@ -7,7 +7,7 @@ class Category(models.Model):
     created_by = models.CharField(max_length=150, null=True, blank=True)
 
     def __str__(self):
-        return f'{self.name} {self.created_date}'
+        return f'{self.name}'
 
     class Meta:
         verbose_name = 'Category'

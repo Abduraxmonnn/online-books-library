@@ -15,7 +15,8 @@ LANGUAGE = [
 class Product(models.Model):
     name = models.CharField("Book Name", max_length=200)
     category = models.ManyToManyField(Category, related_name='category', verbose_name="Book Category")
-    author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True, verbose_name="Book Author")
+    author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True, verbose_name="Book Author",
+                               related_name="author")
     description = models.TextField("Book Description")
 
     file = models.FileField("File of this Book", upload_to="files/books/%Y/%m/%d")

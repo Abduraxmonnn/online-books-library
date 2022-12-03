@@ -19,18 +19,18 @@ class ProductCategorySerializer(serializers.ModelSerializer):
 class ProductAuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
-        fields = [
+        fields = (
             "id",
             "name"
-        ]
+        )
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    author = ProductAuthorSerializer(many=False)
+    author = ProductAuthorSerializer(many=True)
 
     class Meta:
         model = Product
-        fields = [
+        fields = (
             "id",
             "name",
             "author",
@@ -39,7 +39,7 @@ class ProductSerializer(serializers.ModelSerializer):
             "image",
             "created_date",
             "last_update"
-        ]
+        )
 
 
 class ProductDetailSerializer(serializers.ModelSerializer):

@@ -14,7 +14,7 @@ LANGUAGE = [
 
 class Product(models.Model):
     name = models.CharField("Book Name", max_length=200)
-    category = models.ManyToManyField(Category, related_name='category', verbose_name="Book Category")
+    category = models.ManyToManyField(Category, verbose_name="Book Category", related_name='category')
     author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True, verbose_name="Book Author",
                                related_name="author")
     description = models.TextField("Book Description")

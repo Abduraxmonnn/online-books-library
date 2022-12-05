@@ -6,6 +6,7 @@ from apps.products.models import Product
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['name', 'get_categories', 'language', 'year']
     list_filter = ['category', 'language', 'year', 'created_date', 'last_update']
+    filter_horizontal = ['category', ]
     # exclude = ["size", "size_type", "file_type", "rate", "created_date", "last_update"]
     list_display_links = ['name', ]
     search_fields = ['name', 'category']

@@ -23,7 +23,10 @@ class ProductViewSet(viewsets.ModelViewSet):
     ordering = ['-id']
 
 
-class ProductDetailViewSet(views.APIView):
+class ProductDetailViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductDetailSerializer
+
     def get(self, request, pk=None):
         queryset = get_object_or_404(Product, pk=pk)
         serializer = ProductDetailSerializer(queryset, many=False)

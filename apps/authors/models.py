@@ -7,7 +7,7 @@ class Author(models.Model):
     last_update = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"Name: {self.name} Created Date: {self.created_date}"
+        return self.name
 
     class Meta:
         verbose_name = "Author"

@@ -12,7 +12,7 @@ sys.path.append(os.path.join(BASE_DIR, 'apps'))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7md0my-$34b#@he+=qtkddgwv)*mqdj+)w1!4do51+*(^#cx9)42'
+SECRET_KEY = 'django-insecure-7as2143rdmd0my-$34b#@he+=qtkddgwv)*mqdj+)w1!4do51+*(^#cx9)42'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -25,6 +25,7 @@ INTERNAL_IPS = [
 
 # Application definition
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -175,3 +176,29 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# JAZZMIN SETTINGS
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Library Admin",
+    "site_header": "Library",
+    "site_brand": "Ocean Books",
+    "welcome_sign": "Welcome to the Ocean Books online library Admin panel",
+    "copyright": "Acme Library Ltd",
+    "search_model": ["auth.User", "auth.Group"],
+    "topmenu_links": [
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+
+        {"name": "Support", "url": "https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSMScfqXFKdBtlqgSmsCPdTlFmFhVmtdWtdSchHkZfBpsqHggZDbXWgZLPJKHPplkSltsrJG", "new_window": True},
+
+        # {"model": "auth.User"},
+
+        {"app": "books"},
+    ],
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "flatly",
+    "dark_mode_theme": "darkly",
+}

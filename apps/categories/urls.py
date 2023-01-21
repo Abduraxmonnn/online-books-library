@@ -1,9 +1,10 @@
 # Django
-from django.conf.urls import url
+from django.urls import path
 
 # Project
-from apps.categories.views import CategoryViewSet
+from apps.categories.views import CategoryListAPIView, CategoryDetailAPIView
 
 urlpatterns = [
-    url(r'category', CategoryViewSet.as_view({'get': 'list'}), name='category')
+    path(r'list', CategoryListAPIView.as_view(), name='category'),
+    path(r'detail/<int:pk>', CategoryDetailAPIView.as_view(), name='category-detail')
 ]

@@ -37,8 +37,10 @@ INSTALLED_APPS = [
 
     'corsheaders',
     'django_filters',
+    'rest_framework.authtoken',
     'rest_framework',
 
+    'apps.user',
     'apps.products',
     'apps.categories',
     'apps.authors'
@@ -79,6 +81,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ocean.wsgi.application'
 
+AUTH_USER_MODEL = 'user.User'
+
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -117,9 +121,17 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend',
         'rest_framework.filters.SearchFilter',
     ],
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ],
+
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     # 'PAGE_SIZE': 50,
-
 }
 
 """
@@ -152,7 +164,7 @@ All SQL queries to console
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 

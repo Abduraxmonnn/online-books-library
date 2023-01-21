@@ -7,6 +7,8 @@ class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
         fields = [
-            "id",
-            "name"
+            'id',
+            'name',
+            'created_date',
+            'last_update'
         ]

@@ -1,6 +1,8 @@
 ## Welcome
 # OCEAN BOOKS
 
+![alt text](main_photo/New%20Product%20Mockup.png)
+
 ### About the project
 This project is an `online library` and was created for people who love to `read books` and `save their time`. 
 People can `bookmark`, `like` and `rate`, when people bookmark, they can read these books after a while, because these books will be bookmarked. 

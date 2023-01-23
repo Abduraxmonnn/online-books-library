@@ -12,7 +12,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_admin = models.BooleanField(default=False)
 
     username = models.CharField(verbose_name=_('Username'), max_length=150, unique=True)
-    email = models.EmailField(verbose_name=_('Email'), max_length=100, unique=True)
+    email = models.EmailField(verbose_name=_('Email'), max_length=100)
     age = models.IntegerField(null=True)
 
     created_date = models.DateTimeField(auto_now=True)

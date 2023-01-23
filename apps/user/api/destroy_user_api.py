@@ -12,7 +12,6 @@ from apps.user.serializers import UserSerializer
 
 
 class UserDestroyViewSet(viewsets.ModelViewSet):
-    model = User
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
@@ -29,4 +28,3 @@ class UserDestroyViewSet(viewsets.ModelViewSet):
             return super(UserDestroyViewSet, self).destroy(request, *args, **kwargs)
         except ProtectedError:
             return Response(data={'This object can not be deleted'}, status=status.HTTP_400_BAD_REQUEST)
-

@@ -9,7 +9,7 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 # Project
 from apps.authors.models import Author
 from apps.authors.serializers import AuthorSerializer
-from apps.services.basic_services import list_objects, get_object_by_id_or_404
+from apps.services import list_objects, get_object_by_id_or_404
 
 class AuthorListAPIView(views.APIView):
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]

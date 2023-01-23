@@ -9,7 +9,7 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 # Project
 from apps.categories.models import Category
 from apps.categories.serializers import CategorySerializer
-from apps.services.basic_services import list_objects, get_object_by_id_or_404
+from apps.services import list_objects, get_object_by_id_or_404
 
 
 class CategoryListAPIView(views.APIView):

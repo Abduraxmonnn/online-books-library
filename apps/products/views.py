@@ -9,10 +9,10 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 # Project
 from apps.products.models import Product
 from apps.products.serializers import ProductSerializer, ProductDetailSerializer
-from apps.services.basic_services import get_object_by_id_or_404, list_objects_by_select_related
+from apps.services import list_objects_by_select_related, get_object_by_id_or_404_and_by_prefetch_related
 
 
-class ProductAPIView(views.APIView):
+class ProductListAPIView(views.APIView):
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     search_fields = ["name", "category__name", "author__name"]
     filterset_fields = ["name", "category", "year", "language", "created_date"]
@@ -25,13 +25,13 @@ class ProductAPIView(views.APIView):
         return queryset
 
     def get(self, request):
-        queryset = self.filter_queryset(list_objects_by_select_related(Product.objects, "author"))
+        queryset = self.filter_queryset(list_objects_by_select_related(Product.objects, 'author'))
         serializer = ProductSerializer(queryset, many=True).data
         return Response(serializer)
 
 
 class ProductDetailAPIView(views.APIView):
     def get(self, request, pk=None):
-        queryset = get_object_by_id_or_404(Product, pk)
+        queryset = get_object_by_id_or_404_and_by_prefetch_related(Product.objects, pk, 'author', 'category')
         serializer = ProductDetailSerializer(queryset, many=False)
         return Response(serializer.data)

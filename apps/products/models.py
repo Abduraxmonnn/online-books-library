@@ -4,6 +4,7 @@ from django.db import models
 # Project
 from apps.authors.models import Author
 from apps.categories.models import Category
+from apps.images.models import Image
 
 LANGUAGE = [
     ('EN', 'English'),
@@ -20,7 +21,7 @@ class Product(models.Model):
     description = models.TextField("Book Description")
 
     file = models.FileField("File of this Book", upload_to="files/books/%Y/%m/%d")
-    image = models.ImageField("Image of this Book", upload_to='files/images/%Y/%m/%d')
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, verbose_name="Image of this Book")
     video = models.FileField("Video of this Book", upload_to='files/videos/%Y/%m/%d', blank=True, null=True)
 
     year = models.IntegerField("Year of Publication of the Book")
@@ -43,13 +44,13 @@ class Product(models.Model):
         x = self.file.size
         y = 512000
         if x < y:
-            self.size = round(x/1000, 2)
+            self.size = round(x / 1000, 2)
             self.size_type = "kb"
-        elif x < y*1000:
-            self.size = round(x/1000000, 2)
+        elif x < y * 1000:
+            self.size = round(x / 1000000, 2)
             self.size_type = "mb"
         else:
-            self.size = round(x/1000000000, 2)
+            self.size = round(x / 1000000000, 2)
             self.size_type = "gb"
 
         self.file_type = str(self.file).split(".")[-1].upper()

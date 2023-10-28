@@ -11,6 +11,7 @@ from apps.authors.models import Author
 from apps.authors.serializers import AuthorSerializer
 from apps.services import list_objects, get_object_by_id_or_404
 
+
 class AuthorListAPIView(views.APIView):
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     search_fields = ['name', ]

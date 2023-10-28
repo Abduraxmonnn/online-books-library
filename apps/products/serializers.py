@@ -63,3 +63,9 @@ class ProductDetailSerializer(serializers.ModelSerializer):
             "size_type",
             "file_type"
         ]
+
+
+class ProductCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = '__all__'

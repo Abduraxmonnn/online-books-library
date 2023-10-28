@@ -8,6 +8,8 @@ from apps.user.models import User
 """
 A form for creating new users. Includes all the required fields, plus a repeated password.
 """
+
+
 class UserCreationForm(forms.ModelForm):
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
     confirm_password = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
@@ -19,6 +21,7 @@ class UserCreationForm(forms.ModelForm):
     """
     Check that the two password entries match
     """
+
     def clean_confirm_password(self):
         password = self.cleaned_data.get('password')
         confirm_password = self.cleaned_data.get('confirm_password')
@@ -46,6 +49,8 @@ A form for updating users. Includes all the fields on
 the user, but replaces the password field with admin's
 password hash display field.
 """
+
+
 class UserChangeForm(forms.ModelForm):
     password = ReadOnlyPasswordHashField()
 
@@ -97,4 +102,4 @@ class CustomUserAdmin(UserAdmin):
     )
 
     search_fields = ('username', 'first_name')
-    ordering = ('username', )
+    ordering = ('username',)

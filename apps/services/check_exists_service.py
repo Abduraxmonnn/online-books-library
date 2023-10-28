@@ -2,6 +2,7 @@
 from rest_framework import status
 from rest_framework.response import Response
 
+
 def check_exists(*args):
     for element in args:
         if element.exists():
